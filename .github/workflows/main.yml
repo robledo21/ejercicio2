@@ -1,0 +1,17 @@
+name: Ejercico 2
+
+on: push
+
+jobs: 
+  tareas: 
+    runs-on: ubuntu-latest
+    permissions:  
+      security-events: write
+    steps:
+      - name: Bajar codigo
+        uses: actions/checkout@v4
+
+      - name: Testear calidad de codigo
+        uses: advanced-security/python-lint-code-scanning-action@v1
+        with: 
+          linter: pylint
